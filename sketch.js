@@ -15,10 +15,11 @@ function setup() {
   textAlign(CENTER);
   textFont(font);
   noLoop();
+   video.hide();
   gif1.size(windowWidth,windowHeight);
   gif1.position(0,0);
  var sum;
-   video.hide();
+  
  
 
 }
