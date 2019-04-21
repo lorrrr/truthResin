@@ -2,7 +2,7 @@
 function setup() {
   createCanvas(windowWidth,windowHeight);
   img = loadImage("title.png");
-  video = createVideo("countdown.mp4");
+  video = createVideo("countdown.mp4",loaded);
   font = loadFont("InputMono-Light.ttf");
   video.play();
   video.hide();
