@@ -18,6 +18,7 @@ function setup() {
   gif1.size(windowWidth,windowHeight);
   gif1.position(0,0);
  var sum;
+   video.hide();
  
 
 }
@@ -69,6 +70,6 @@ function mouseClicked() {
   gif1.remove();
   getAudioContext().resume();
   video.play();
-  video.hide();
+
   loop();
 }
