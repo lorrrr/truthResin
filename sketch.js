@@ -1,32 +1,38 @@
-
+var video;
+var img;
+var font;
+var fc=0;
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  img = loadImage("title.png");
+   img = loadImage("title.png");
+   gif1 = createImg("folder.gif")
+   font = loadFont("InputMono-Light.ttf");
   video = createVideo("countdown.mp4");
-  font = loadFont("InputMono-Light.ttf");
-  video.play();
-  video.hide();
-  imageMode(CENTER);
+ background(0);
+ imageMode(CENTER);
   var count;
   noStroke();
   textAlign(CENTER);
   textFont(font);
-
+  noLoop();
+  gif1.size(windowWidth,windowHeight);
+  gif1.position(0,0);
  var sum;
+ 
 
 }
 
 
 function draw(){
 
-  if (frameCount<=600){
+  if (fc<=600){
   image(video,windowWidth/2,windowHeight/2,windowWidth,windowHeight );
-  } else if (frameCount ==601){
-
+  } else if (fc ==601){
+    video.remove();
       count =-200;
   } else
 
-  if (frameCount<=800){
+  if (fc<=800){
     clear();
     translate(windowWidth/2,windowHeight/2);
       image(img,0,-100,2097/4,245/4);
@@ -42,9 +48,9 @@ function draw(){
     textSize(20);
     text(Math.floor(sum/4)+1+"%",0,100);
 
-  } else if (frameCount>=840)
+  } else if (fc>=840)
   {console.log(sum);remove()};
-
+fc++;
 }
 
 function polygon(x, y, radius, npoints) {
@@ -56,4 +62,13 @@ function polygon(x, y, radius, npoints) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
+}
+
+function mouseClicked() { 
+  clear();
+  gif1.remove();
+  getAudioContext().resume();
+  video.play();
+  video.hide();
+  loop();
 }
